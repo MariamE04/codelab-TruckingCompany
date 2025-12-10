@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function Trucks() {
   const [trucks, setTrucks] = useState([]);
@@ -10,14 +11,16 @@ function Trucks() {
   }, []);
 
   return (
-    <div>
+     <div>
       <h1>All Trucks</h1>
 
       {trucks.map(truck => (
-        <div key={truck.truckId}>
-          <h2>{truck.name}</h2>
-          <p>Weight: {truck.weight} kg</p>
-          <p>Capacity: {truck.capacity} kg</p>
+        <div key={truck.truckId} className="truck-card">
+          <h2>
+            <NavLink to={`/trucks/${truck.truckId}`}>{truck.name}</NavLink>
+          </h2>
+          <p><strong>Weight:</strong> {truck.weight} kg</p>
+          <p><strong>Capacity:</strong> {truck.capacity} kg</p>
           <hr />
         </div>
       ))}
