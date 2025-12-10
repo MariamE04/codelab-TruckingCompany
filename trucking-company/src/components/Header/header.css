@@ -1,0 +1,72 @@
+/* Top header med logo og login */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d4cea; /* mørk baggrund */
+  color: white;
+  padding: 10px 20px;
+}
+
+.top-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* mellem logo og tekst */
+}
+
+.top-header .logo img {
+  height: 50px;
+  width: auto;
+}
+
+.top-header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+/* Login-knap til højre */
+.login-button {
+  padding: 10px 20px;
+  background-color: #e04747;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background-color: #cf2020;
+}
+
+/* Navigation nedenunder */
+.main-nav {
+  background-color: #444; /* mørkegrå boks */
+}
+
+.main-nav ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  margin-right: 20px;
+}
+
+.main-nav li a {
+  display: block;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.main-nav li a:hover:not(.active) {
+  background-color: #555;
+}
+
+.main-nav .active {
+  background-color: #e04747;
+}
