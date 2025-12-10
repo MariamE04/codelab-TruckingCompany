@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import placeholderTruck from "../assets/truck-placeholder.jpg"
 
 function TruckCard() {
   const { truckId } = useParams(); 
@@ -19,7 +20,7 @@ function TruckCard() {
   return (
     <div>
       <h1>{truck.name}</h1>
-      <img src={truck.image} alt={truck.name} width="200" />
+      <img src={truck.image || placeholderTruck} alt={truck.name} width="200" />
       <p><strong>Model:</strong> {truck.model}</p>
       <p><strong>Capacity:</strong> {truck.capacity} kg</p>
       <p><strong>Max Speed:</strong> {truck.maxSpeed} km/h</p>

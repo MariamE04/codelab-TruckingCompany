@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import placeholderDriver from "../assets/driver-placeholder.jpg";
 
 function DriverCard() {
   const { driverId } = useParams(); 
@@ -19,9 +20,7 @@ function DriverCard() {
   return (
     <div>
       <h1>{driver.name}</h1>
-      <img src={driver.image} alt={driver.name} width="150" />
-
-      
+      <img src={driver.image || placeholderDriver} alt={driver.name} width="150" />
       <p><strong>License:</strong> {driver.license}</p>
       <p><strong>Phone:</strong> {driver.phone}</p>
       <p><strong>Email:</strong> {driver.email}</p>
