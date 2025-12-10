@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../styles/RegisterDriver.module.css";
 
 function RegisterDriver() {
   const [trucks, setTrucks] = useState([]);
@@ -14,7 +15,6 @@ function RegisterDriver() {
     agreeToTerms: false
   });
 
-  // Hent trucks til dropdown
   useEffect(() => {
     fetch("http://localhost:4000/trucks")
       .then(res => res.json())
@@ -32,7 +32,6 @@ function RegisterDriver() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Opret nyt driver-objekt
     const newDriver = {
       name: formData.name,
       license: formData.license,
@@ -52,9 +51,8 @@ function RegisterDriver() {
       body: JSON.stringify(newDriver)
     })
       .then(res => res.json())
-      .then(data => {
+      .then(() => {
         alert("Driver registered successfully!");
-        // nulstil form
         setFormData({
           name: "",
           license: "",
@@ -71,44 +69,46 @@ function RegisterDriver() {
   };
 
   return (
-    <div>
-      <h1>Register New Driver</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+    <div className={styles.container}>
+      <h1 className={styles.title}>Register New Driver</h1>
 
-        <label>License Number:</label>
-        <input type="text" name="license" value={formData.license} onChange={handleChange} required />
+      <form onSubmit={handleSubmit} className={styles.form}>
 
-        <label>Phone Number:</label>
-        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+        <label className={styles.label}>Name:</label>
+        <input className={styles.input} type="text" name="name" value={formData.name} onChange={handleChange} required />
 
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <label className={styles.label}>License Number:</label>
+        <input className={styles.input} type="text" name="license" value={formData.license} onChange={handleChange} required />
 
-        <label>Street Address:</label>
-        <input type="text" name="street" value={formData.street} onChange={handleChange} required />
+        <label className={styles.label}>Phone Number:</label>
+        <input className={styles.input} type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
 
-        <label>ZIP Code:</label>
-        <input type="text" name="zip" value={formData.zip} onChange={handleChange} required />
+        <label className={styles.label}>Email:</label>
+        <input className={styles.input} type="email" name="email" value={formData.email} onChange={handleChange} required />
 
-        <label>City:</label>
-        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
+        <label className={styles.label}>Street Address:</label>
+        <input className={styles.input} type="text" name="street" value={formData.street} onChange={handleChange} required />
 
-        <label>Assigned Truck:</label>
-        <select name="assignedTruck" value={formData.assignedTruck} onChange={handleChange}>
+        <label className={styles.label}>ZIP Code:</label>
+        <input className={styles.input} type="text" name="zip" value={formData.zip} onChange={handleChange} required />
+
+        <label className={styles.label}>City:</label>
+        <input className={styles.input} type="text" name="city" value={formData.city} onChange={handleChange} required />
+
+        <label className={styles.label}>Assigned Truck:</label>
+        <select className={styles.select} name="assignedTruck" value={formData.assignedTruck} onChange={handleChange}>
           <option value="">Select a Truck</option>
           {trucks.map(truck => (
             <option key={truck.truckId} value={truck.truckId}>{truck.name}</option>
           ))}
         </select>
 
-        <label>
+        <label className={styles.checkboxContainer}>
           <input type="checkbox" name="agreeToTerms" checked={formData.agreeToTerms} onChange={handleChange} required />
           I agree to the terms and conditions
         </label>
 
-        <button type="submit">Register Driver</button>
+        <button className={styles.button} type="submit">Register Driver</button>
       </form>
     </div>
   );

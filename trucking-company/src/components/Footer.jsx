@@ -1,5 +1,7 @@
+import styles from "../styles/Footer.module.css";
+
 const Footer = () => {
-  return <div>© 2025 Trucking Company</div>;
+    return <footer className={styles.footer}>© 2025 Trucking Company</footer>;
 };
 
 export default Footer;

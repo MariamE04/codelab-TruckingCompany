@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import styles from "../styles/Trucks.module.css";
 
 function Trucks() {
   const [trucks, setTrucks] = useState([]);
@@ -11,19 +12,20 @@ function Trucks() {
   }, []);
 
   return (
-     <div>
+    <div className={styles.container}>
       <h1>All Trucks</h1>
 
-      {trucks.map(truck => (
-        <div key={truck.truckId} className="truck-card">
-          <h2>
-            <NavLink to={`/trucks/${truck.truckId}`}>{truck.name}</NavLink>
-          </h2>
-          <p><strong>Weight:</strong> {truck.weight} kg</p>
-          <p><strong>Capacity:</strong> {truck.capacity} kg</p>
-          <hr />
-        </div>
-      ))}
+      <div className={styles.grid}>
+        {trucks.map(truck => (
+          <div key={truck.truckId} className={styles.card}>
+            <h2>
+              <NavLink to={`/trucks/${truck.truckId}`}>{truck.name}</NavLink>
+            </h2>
+            <p><strong>Weight:</strong> {truck.weight} kg</p>
+            <p><strong>Capacity:</strong> {truck.capacity} kg</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

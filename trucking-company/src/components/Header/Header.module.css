@@ -1,0 +1,20 @@
+.header {
+  background: var(--primary);
+  padding: 15px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

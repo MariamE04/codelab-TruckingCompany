@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import placeholderTruck from "../assets/truck-placeholder.jpg"
+import styles from "../styles/TruckCard.module.css";
 
-function TruckCard() {
+function TruckCard() {  
   const { truckId } = useParams(); 
   const [truck, setTruck] = useState(null);
 
@@ -18,9 +19,9 @@ function TruckCard() {
   if (!truck) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h1>{truck.name}</h1>
-      <img src={truck.image || placeholderTruck} alt={truck.name} width="200" />
+    <div className={styles.card}>
+      <h1 className={styles.title}>{truck.name}</h1>
+      <img className={styles.image} src={truck.image || placeholderTruck} alt={truck.name} width="200" />
       <p><strong>Model:</strong> {truck.model}</p>
       <p><strong>Capacity:</strong> {truck.capacity} kg</p>
       <p><strong>Max Speed:</strong> {truck.maxSpeed} km/h</p>
