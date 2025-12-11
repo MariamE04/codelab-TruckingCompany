@@ -12,7 +12,7 @@ function TruckCard() {
 
     fetch(`http://localhost:4000/trucks?truckId=${truckId}`)
       .then(res => res.json())
-      .then(data => setTruck(data[0]))  // data[0], fordi json-server returnerer et array
+      .then(data => setTruck(data[0])) 
       .catch(err => console.error(err));
   }, [truckId]);
 
