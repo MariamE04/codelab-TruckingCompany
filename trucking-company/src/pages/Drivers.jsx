@@ -6,7 +6,7 @@ function Drivers() {
   const [drivers, setDrivers] = useState([]);
 
   useEffect(() => {
-    fetch("http://142.93.174.150:4000/drivers")
+    fetch("http://localhost:4000/drivers")
       .then(res => res.json())
       .then(data => setDrivers(data));
   }, []);
