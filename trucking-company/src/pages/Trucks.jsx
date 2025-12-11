@@ -6,7 +6,7 @@ function Trucks() {
   const [trucks, setTrucks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/trucks")
+    fetch("/api/trucks")
       .then(res => res.json())
       .then(data => setTrucks(data));
   }, []);
